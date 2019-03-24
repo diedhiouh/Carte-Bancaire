@@ -2,8 +2,25 @@
 	<head>
 		<title>Carte Bancaire</title>
 		<script src="carte.js"></script>
+		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		
+		<div class="bloc1">
+			<div class="tete">
+				<h1>VERIFICATION DE NUMERO DE CARTE DE CREDIT</h1>
+			</div>
+			<h2>Entrez le nummero de carte de credit: </h2>
+			<form action="#" >
+				<label for="carte" id="lab">N° de Carte : </label>
+				<input type="text" maxlength="18" name="carte" id="entrer"><br/><br/>
+				<input type="button"  value="VERIFIER" name="valid" id="valid"/>
+			</form>
+		</div>
+		<div class="bloc2">
+			<h1>RESULAT</h1>
+				<div>
+				<textarea id="message" disabled="disabled"> </textarea>
+				</div>
+		</div>
 	</body>
 </html>

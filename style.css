@@ -1,0 +1,53 @@
+.bloc1{
+	width:510px;
+	height:300px;
+	border:2px solid;
+	float:left;
+	border-radius:20px;
+}
+.bloc2{
+	width:500px;
+	height:300px;
+	border:2px solid;
+	float:right;
+	border-radius:30px;
+}
+h1{
+	text-align:center;
+	
+}
+#entrer{
+	width:380px;
+	height:40px;
+	font-size:30px;
+	letter-spacing:4px;
+	font-family:Times;
+}
+#valid{
+	width:250px;
+	height:40px;
+	margin-left:130px;
+	color:white;
+	font-weight:bolder;
+	font-size:30px;
+	border-radius:10px;
+	background:green;
+	border:none;
+}
+#valid:hover{
+	background-color:blue;
+}
+#lab{
+	font-size:20px;
+
+}
+.tete{
+	background:linear-gradient(green,white);
+}
+#message{
+	width:500px;
+	color:blue;
+	text-align:center;
+	font-size:35px;
+	font-weight:bloder;
+}
