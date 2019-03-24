@@ -32,9 +32,9 @@ class Visa extends Verificateur{
 verifier (value) {
 	var result="";
 	var value=this.NumCarte;
-	if(value.length!=15){
+	if(value.length==15){
 		var debut=value.slice(0,2);
-		if(debut!="14" || debut!="15"){
+		if(debut=="14" || debut=="15"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
@@ -81,9 +81,52 @@ class MasterCard extends Verificateur{
 	constructor(NumCarte){
 		super(NumCarte);
 	}
-	verifier () {
-		console.log("Je suis un Master");
-		  }
+verifier (value) {
+		//console.log("Je suis un Master");
+	var result="";
+	var value=this.NumCarte;
+	if(value.length!=16){
+		var debut=value.slice(0,2);
+		if(debut!="41" || debut!="40"){
+			
+			// takes the form field value and returns true on valid number
+			function valid_credit_card(value) {
+			// accept only digits, dashes or spaces
+				if (/[^0-9-\s]+/.test(value)) return false;
+
+			// The Luhn Algorithm. It's so pretty.
+				var nCheck = 0, nDigit = 0, bEven = false;
+				value = value.replace(/\D/g, "");
+
+				for (var n = value.length - 1; n >= 0; n--) {
+					var cDigit = value.charAt(n),
+						nDigit = parseInt(cDigit, 10);
+
+					if (bEven) {
+						if ((nDigit *= 2) > 9) nDigit -= 9;
+					}
+
+					nCheck += nDigit;
+					bEven = !bEven;
+				}
+
+				if((nCheck % 10) == 0){
+					//alert("Valide");
+					result=true;
+					let mes="La carte est du type MasterCard";
+					document.getElementById("message").value=mes;
+				}else{
+					//alert("invalide");
+					result=false;
+					let err="La carte est invalide";
+					document.getElementById("message").value=err;
+			}
+		}
+		var r=valid_credit_card(this.NumCarte);
+		alert(result);
+		}
+	}
+}
 }
 
 //Classe AmericanExp verifie si la carte est du type AmericanExpress
@@ -108,7 +151,9 @@ function Affiche(){
 	var cart=recup();
 	alert(cart);
 	let banq=new Visa(cart);
+	let banqM=new MasterCard(cart);
 	banq.verifier();
+	banqM.verifier();
 }
 function recup(){
 	var credit=document.getElementById('entrer').value;
