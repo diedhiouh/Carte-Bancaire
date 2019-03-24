@@ -85,9 +85,9 @@ verifier (value) {
 		//console.log("Je suis un Master");
 	var result="";
 	var value=this.NumCarte;
-	if(value.length!=16){
+	if(value.length==16){
 		var debut=value.slice(0,2);
-		if(debut!="41" || debut!="40"){
+		if(debut=="41" || debut=="40"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
@@ -134,8 +134,51 @@ class AmericanExp extends Verificateur{
 	constructor(NumCarte){
 		super(NumCarte);
 	}
-	verifier () {
-		console.log("Je suis un American"+this.NumCarte);
+verifier () {
+	//console.log("Je suis un American"+this.NumCarte);
+	var result="";
+	var value=this.NumCarte;
+	if(value.length!=17){
+	var debut=value.slice(0,2);
+		if(debut!="39" || debut!="30"){
+			
+			// takes the form field value and returns true on valid number
+			function valid_credit_card(value) {
+			// accept only digits, dashes or spaces
+				if (/[^0-9-\s]+/.test(value)) return false;
+
+			// The Luhn Algorithm. It's so pretty.
+				var nCheck = 0, nDigit = 0, bEven = false;
+				value = value.replace(/\D/g, "");
+
+				for (var n = value.length - 1; n >= 0; n--) {
+					var cDigit = value.charAt(n),
+						nDigit = parseInt(cDigit, 10);
+
+					if (bEven) {
+						if ((nDigit *= 2) > 9) nDigit -= 9;
+					}
+
+					nCheck += nDigit;
+					bEven = !bEven;
+				}
+
+				if((nCheck % 10) == 0){
+					//alert("Valide");
+					result=true;
+					let mes="La carte est du type American Express";
+					document.getElementById("message").value=mes;
+				}else{
+					//alert("invalide");
+					result=false;
+					let err="La carte est invalide";
+					document.getElementById("message").value=err;
+			}
+		}
+		var r=valid_credit_card(this.NumCarte);
+		alert(result);
+		}
+	}
 	}
 }
 
@@ -152,8 +195,10 @@ function Affiche(){
 	alert(cart);
 	let banq=new Visa(cart);
 	let banqM=new MasterCard(cart);
+	let banqA=new AmericanExp(cart);
 	banq.verifier();
 	banqM.verifier();
+	banqA.verifier();
 }
 function recup(){
 	var credit=document.getElementById('entrer').value;
