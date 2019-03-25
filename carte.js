@@ -70,7 +70,7 @@ verifier (value) {
 			}
 		}
 		var r=valid_credit_card(this.NumCarte);
-		alert(result);
+		//alert(result);
 		}
 	}
 }
@@ -123,7 +123,7 @@ verifier (value) {
 			}
 		}
 		var r=valid_credit_card(this.NumCarte);
-		alert(result);
+		//alert(result);
 		}
 	}
 }
@@ -138,9 +138,9 @@ verifier () {
 	//console.log("Je suis un American"+this.NumCarte);
 	var result="";
 	var value=this.NumCarte;
-	if(value.length!=17){
+	if(value.length==17){
 	var debut=value.slice(0,2);
-		if(debut!="39" || debut!="30"){
+		if(debut=="39" || debut=="30"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
@@ -176,7 +176,7 @@ verifier () {
 			}
 		}
 		var r=valid_credit_card(this.NumCarte);
-		alert(result);
+		//alert(result);
 		}
 	}
 	}
@@ -190,15 +190,24 @@ function init(){
 function Affiche(){
 	var num=recup();
 	//let banq=new Banque("568985696");
-	//let banq=new Visa("14485275742308327");
-	var cart=recup();
-	alert(cart);
-	let banq=new Visa(cart);
-	let banqM=new MasterCard(cart);
-	let banqA=new AmericanExp(cart);
-	banq.verifier();
-	banqM.verifier();
-	banqA.verifier();
+	let n=parseInt(recup());
+	if(isNaN(n)!=true){
+			//let banq=new Visa("14485275742308327");
+		var cart=recup();
+		if(cart.length<15 || cart.length>17){
+			document.getElementById("message").value="La carte est invalide";	
+		}
+		//alert(cart);
+		let banq=new Visa(cart);
+		let banqM=new MasterCard(cart);
+		let banqA=new AmericanExp(cart);
+		banq.verifier();
+		banqM.verifier();
+		banqA.verifier();
+	}else{
+		document.getElementById("message").value="Valeur invalid";	
+	}
+	
 }
 function recup(){
 	var credit=document.getElementById('entrer').value;
