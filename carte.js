@@ -56,23 +56,21 @@ verifier (value) {
 					nCheck += nDigit;
 					bEven = !bEven;
 				}
-
-				if((nCheck % 10) == 0){
-					//alert("Valide");
-					result=true;
-					let mes="La carte est du type VISA";
-					document.getElementById("message").value=mes;
-				}else{
-					//alert("invalide");
-					result=false;
-					let err="La carte est invalide";
-					document.getElementById("message").value=err;
-			}
+				
+				return (nCheck % 10) == 0;
 		}
 		var r=valid_credit_card(this.NumCarte);
+		
 		//alert(result);
 		}
 	}
+	if(r){
+		alert("valide");
+		result=true;
+	}else{
+		result=false;
+	}
+return result; 
 }
 }
 
@@ -110,24 +108,23 @@ verifier (value) {
 					bEven = !bEven;
 				}
 
-				if((nCheck % 10) == 0){
-					//alert("Valide");
-					result=true;
-					let mes="La carte est du type MasterCard";
-					document.getElementById("message").value=mes;
-				}else{
-					//alert("invalide");
-					result=false;
-					let err="La carte est invalide";
-					document.getElementById("message").value=err;
-			}
-		}
-		var r=valid_credit_card(this.NumCarte);
+				return (nCheck % 10) == 0;
+				}
+		var m=valid_credit_card(this.NumCarte);
 		//alert(result);
 		}
+		if(m){
+			//alert("valide");
+			result=true;
+		}else{
+			result=false;
+		}
+		}
+		
+return result; 
 	}
 }
-}
+
 
 //Classe AmericanExp verifie si la carte est du type AmericanExpress
 class AmericanExp extends Verificateur{
@@ -163,22 +160,19 @@ verifier () {
 					bEven = !bEven;
 				}
 
-				if((nCheck % 10) == 0){
-					//alert("Valide");
-					result=true;
-					let mes="La carte est du type American Express";
-					document.getElementById("message").value=mes;
-				}else{
-					//alert("invalide");
-					result=false;
-					let err="La carte est invalide";
-					document.getElementById("message").value=err;
-			}
+				return (nCheck % 10) == 0;
 		}
 		var r=valid_credit_card(this.NumCarte);
 		//alert(result);
 		}
 	}
+		if(r){
+			//alert("valide");
+			result=true;
+		}else{
+			result=false;
+		}
+		return result; 
 	}
 }
 
@@ -191,7 +185,7 @@ function Affiche(){
 	var num=recup();
 	//let banq=new Banque("568985696");
 	let n=parseInt(recup());
-	if(isNaN(n)!=true){
+	if(!isNaN(n)){
 			//let banq=new Visa("14485275742308327");
 		var cart=recup();
 		if(cart.length<15 || cart.length>17){
@@ -201,16 +195,33 @@ function Affiche(){
 		let banq=new Visa(cart);
 		let banqM=new MasterCard(cart);
 		let banqA=new AmericanExp(cart);
-		banq.verifier();
-		banqM.verifier();
-		banqA.verifier();
+		let visaa=banq.verifier();
+		let master=banqM.verifier();
+		if(visaa){
+			
+			let mes="La carte est du type Visa";
+			document.getElementById("message").value=mes;
+		
+		}
+		
+		if(master){
+			result=true;
+			let mes="La carte est du type MasterCard";
+			document.getElementById("message").value=mes;
+		
+		}
+		let americ=banqA.verifier();
+		if(americ){
+			result=true;
+			let mes="La carte est du type American Express";
+			document.getElementById("message").value=mes;
+		
+		}
 	}else{
-		document.getElementById("message").value="Valeur invalid";	
-	}
-	
-}
+			document.getElementById("message").value="Erreur \n Valeur invalid";	
+		}
 function recup(){
 	var credit=document.getElementById('entrer').value;
 	return credit;
 }
-
+}
