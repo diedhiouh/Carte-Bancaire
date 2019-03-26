@@ -34,7 +34,7 @@ verifier (value) {
 	var value=this.NumCarte;
 	if(value.length==15){
 		var debut=value.slice(0,2);
-		if(debut=="14" || debut=="15"){
+		if(debut=="40" || debut=="41"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
@@ -85,7 +85,7 @@ verifier (value) {
 	var value=this.NumCarte;
 	if(value.length==16){
 		var debut=value.slice(0,2);
-		if(debut=="41" || debut=="40"){
+		if(debut=="51" || debut=="55"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
@@ -137,7 +137,7 @@ verifier () {
 	var value=this.NumCarte;
 	if(value.length==17){
 	var debut=value.slice(0,2);
-		if(debut=="39" || debut=="30"){
+		if(debut=="39" || debut=="37"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
