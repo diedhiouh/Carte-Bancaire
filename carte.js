@@ -85,7 +85,7 @@ verifier (value) {
 	var value=this.NumCarte;
 	if(value.length==16){
 		var debut=value.slice(0,2);
-		if(debut=="50" || debut=="51" || debut=="52" || debut=="53" || debut=="54" || debut=="55"){
+		if(debut=="51" || debut=="52" || debut=="53" || debut=="54" || debut=="55"){
 			
 			// takes the form field value and returns true on valid number
 			function valid_credit_card(value) {
