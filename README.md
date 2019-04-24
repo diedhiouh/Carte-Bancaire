@@ -5,9 +5,9 @@ Cet exercice consiste à developper un programme de vérification de la validit�
 Le programme vérifie si une carte est du type Visa, Master Card ou American en se utilisant l’algorithme de Luhn.
 
 Chacun de ces cartes a des critères :
-	'-Visa compte 15 chiffres et doit être débuté par 40 ou 41
-	'-MasterCard : compte 16 chiffres et doit être débuté dans l'intervalle 51 et 55
-	'-American Express compte 17 chiffres et doit être débuté par 34 ou 37
+	### -Visa compte 15 chiffres et doit être débuté par 40 ou 41
+	### -MasterCard : compte 16 chiffres et doit être débuté dans l'intervalle 51 et 55
+	### -American Express compte 17 chiffres et doit être débuté par 34 ou 37
 
 L’exercice est programmé en base du modèle de conception Strategy
 Pattern avec le langage JavaScript ECMAScript 6 (ES6). 
@@ -36,7 +36,7 @@ c'est la classe mere du programme. Le numero de carte est declaré dans cette pa
 	
 ## 2 Verificateur
 	
-Verificateur est un classe abstrait. Elle ettend la classe Banque. La methode verifier est declaré dans cette partie.
+Verificateur est une classe abstraite. Elle ettend la classe Banque. La methode verifier est declaré dans cette partie.
 
 ## 3 les classes Visa, MasterCard et AmericanExp
 	
