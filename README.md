@@ -20,7 +20,7 @@ Pattern avec le langage JavaScript ECMAScript 6 (ES6).
 	
 # II. Description des dfferentes classes
 
-	## Banque
+## 1 Banque
 	
 c'est la classe mere du programme. Le numero de carte est declaré dans cette partie avec ses accesseurs et ses mutateur.
 
@@ -34,22 +34,21 @@ c'est la classe mere du programme. Le numero de carte est declaré dans cette pa
 			this._Numcarte=n;
 		}
 	
-	## Verificateur
+## 2 Verificateur
 	
 Verificateur est un classe abstrait. Elle ettend la classe Banque. La methode verifier est declaré dans cette partie.
 
-	## les classes Visa, MasterCard et AmericanExp
+## 3 les classes Visa, MasterCard et AmericanExp
 	
 Elles sont tous un type de carte bancaire. Elles implementent la classe Verificateur et la methode verifier.
 Dans la fonction verifier, on verifie la correspondance des numeros selon leur longueur et leur commencement avant de le soumettre à l'algorithme de lunh.
 Ce dernnier verifie si le numero donné a les critères d'un numéro de carte bancaire. 
 	
-	## La classe principale
+## 4 La classe principale
 	
 Elle se charge de recuperer les données communiquée à travers la page HTML et coordonne le traitement des oprations.
 Elle affiche aussi les resultats obtenus dans la page html.
 
-#######################################################################
 
 
 
