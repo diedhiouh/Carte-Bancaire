@@ -43,6 +43,51 @@ Verificateur est un classe abstrait. Elle ettend la classe Banque. La methode ve
 Elles sont tous un type de carte bancaire. Elles implementent la classe Verificateur et la methode verifier.
 Dans la fonction verifier, on verifie la correspondance des numeros selon leur longueur et leur commencement avant de le soumettre à l'algorithme de lunh.
 Ce dernnier verifie si le numero donné a les critères d'un numéro de carte bancaire. 
+ ''VUE DE LA METHODE Verifier
+ 
+ verifier (value) {
+	var result="";
+	var value=this.NumCarte;
+	if(value.length==15){
+		var debut=value.slice(0,2);
+		if(debut=="40" || debut=="41"){
+			
+			// takes the form field value and returns true on valid number
+			function valid_credit_card(value) {
+			// accept only digits, dashes or spaces
+				if (/[^0-9-\s]+/.test(value)) return false;
+
+			// The Luhn Algorithm. It's so pretty.
+				var nCheck = 0, nDigit = 0, bEven = false;
+				value = value.replace(/\D/g, "");
+
+				for (var n = value.length - 1; n >= 0; n--) {
+					var cDigit = value.charAt(n),
+						nDigit = parseInt(cDigit, 10);
+
+					if (bEven) {
+						if ((nDigit *= 2) > 9) nDigit -= 9;
+					}
+
+					nCheck += nDigit;
+					bEven = !bEven;
+				}
+				
+				return (nCheck % 10) == 0;
+		}
+		var r=valid_credit_card(this.NumCarte);
+		
+		//alert(result);
+		}
+	}
+	if(r){
+		alert("valide");
+		result=true;
+	}else{
+		result=false;
+	}
+return result; 
+}
 	
 ## 4 La classe principale
 	
