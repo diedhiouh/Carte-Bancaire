@@ -104,6 +104,3 @@ Elle affiche aussi les resultats obtenus dans la page html.
 
 
 
-
-
-
